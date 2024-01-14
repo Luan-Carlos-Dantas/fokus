@@ -23,7 +23,7 @@ audioZero.volume = 0.5
 music.loop = true
 music.volume = 0.1
 
-let tempoDecorridoEmSegundo = 10
+let tempoDecorridoEmSegundo = 1500
 let intervaloId = null
 
 
