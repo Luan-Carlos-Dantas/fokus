@@ -21,9 +21,9 @@ audioPause.volume = 0.5
 audioZero.volume = 0.5
 
 music.loop = true
-music.volume = 0.7
+music.volume = 0.1
 
-let tempoDecorridoEmSegundo = 1500
+let tempoDecorridoEmSegundo = 10
 let intervaloId = null
 
 
@@ -74,8 +74,13 @@ function alterarContexto(contexto){
 
 const contagemRegressiva = () => {
   if(tempoDecorridoEmSegundo <= 0){
-    // audioZero.play()
+    audioZero.play()
     alert('Finalizado')
+    const focusActive = html.getAttribute('data-contexto') === 'foco'
+    if(focusActive){
+      const ev = new CustomEvent('FocoFinalizado')
+      document.dispatchEvent(ev)
+    }
     zerar()
     return
   }
